@@ -92,29 +92,26 @@ iii) # Find the element in a list using Binary Search (recursive Method).
 # Program to find the element in a list using Binary Search(recursive Method).
 # Developed by : KAMESH RR
 # RegisterNumber : 212223230095
-def binary_search(array, n):
-    low = 0
-    high = len(array) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if array[mid] == n:
+def binarysearch(array,k,low,high):
+    if low<=high:
+        mid=low+(high-low)//2
+        if array[mid]==k:
             return mid
-        elif array[mid] < n:
-            low = mid + 1
+        elif array[mid]>k:
+            return binarysearch(array,k,low,mid-1)
         else:
-            high = mid - 1
+            return binarysearch(array,k,mid+1,high)
     return -1
-
-array = eval(input())
-n = eval(input())
+array=eval(input())
 array.sort()
-result = binary_search(array, n)
-if result == -1:
-    print (array)
+k=eval(input())
+result=binarysearch(array,k,0,len(array)-1)
+if(result==-1):
+    print(array)
     print("Element not found")
 else:
     print(array)
-    print("Element found at index: ", result)
+    print("Element found at index: ",result)
 
 
 
@@ -130,7 +127,8 @@ ii) # Find the element in a list using Binary Search(Iterative Method).
 ![output](Iterative-method.png)
 
 iii) # Find the element in a list using Binary Search (recursive Method).
-![output](Recursive-method.png)
+![Screenshot 2024-04-16 193115](https://github.com/23002027/Search-Algorithms/assets/139752981/f0e73525-730c-4897-92cf-0350b807c1c0)
+
 
 ## Result
 
